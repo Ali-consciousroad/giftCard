@@ -12,14 +12,17 @@ export default function App() {
   );
 
   function spendGiftCard() {
-    setGiftCard((prevState => {
+    // Update the giftCard state to reflect that the coupon has been used.
+    // The functional form of setGiftCard ensures we work with the latest state (prevState).
+    // The spread operator (...prevState) preserves existing properties while updating specific fields.
+    setGiftCard(prevState => {
       return {
         ...prevState,
-        text: "Your coupon has been used.",
-        valid: false,
-        instructions: "Please visit our restaurant to renew your gift card."
+        text: "Your coupon has been used.", // Update the displayed message.
+        valid: false, // Mark the gift card as no longer valid.
+        instructions: "Please visit our restaurant to renew your gift card." // Provide renewal instructions.
       }
-    })) 
+    }) 
   }
 
   return (
